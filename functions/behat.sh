@@ -34,10 +34,10 @@ function drupal_ti_ensure_selenium() {
 	cd selenium-server
 
   # Append a .0 if the version doesn't include one.
-  dots="${DRUPAL_TI_BEHAT_SELENIUM_VERSION//[^\.]}"
-  if [ ${#dots} -lt 3 ]; then
-    DRUPAL_TI_BEHAT_SELENIUM_VERSION=$DRUPAL_TI_BEHAT_SELENIUM_VERSION.0
-  fi
+	dots="${DRUPAL_TI_BEHAT_SELENIUM_VERSION//[^\.]}"
+	if [ ${#dots} -lt 2 ]; then
+		DRUPAL_TI_BEHAT_SELENIUM_VERSION=$DRUPAL_TI_BEHAT_SELENIUM_VERSION.0
+	fi
 
 	# @todo Make whole file URL overridable via defaults based on env.
 	wget "http://selenium-release.storage.googleapis.com/${DRUPAL_TI_BEHAT_SELENIUM_VERSION%.*}/selenium-server-standalone-$DRUPAL_TI_BEHAT_SELENIUM_VERSION.jar"
